@@ -1,0 +1,35 @@
+
+.form-control{
+  margin: 1rem 0;
+}
+.form-control label,
+.form-control input{
+  display: block;
+  width: 100%;
+}
+.form-control input{
+  border: 1px solid #333333;
+  background-color: #333333;
+  color: #eeeeee;
+  font: inherit;
+  outline: none;
+}
+.form-control input:focus{
+  border: 1px solid #333333;
+  background-color: #333333;
+  color: #eeeeee;
+  font: inherit;
+}
+button{
+  font: inherit;
+  border: 1px solid #3089af;
+  background-color: #3089af;
+  color: #eee;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+}
+button:hover,
+button:active{
+  background-color: #03a9f4;
+}
