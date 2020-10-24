@@ -9,20 +9,18 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const product = new Product(req.body.title);
+  const data = { ...req.body}
+  const product = new Product({...data});
   product.save();
   res.redirect('/');
 };
 
 exports.getProducts = (req, res, next) => {
-  // res.render('shop', {prods: products, docTitle:'Shop', path: '/'}); //pug
-  const products = Product.fetchAll((products) => {
-    res.render("shop/product-list", {
+  Product.fetchAll((products) => {
+    res.render("admin/products", {
       prods: products,
-      docTitle: "Shop",
-      path: "/",
-      hasProducts: products.length > 0,
-      activeShop: true,
+      docTitle: "Admin Products",
+      path: "/admin/products",
     });
   })
 };

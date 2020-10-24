@@ -58,6 +58,7 @@ main {
 .card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   background-color: #333333;
+  color: #eee;
 }
 
 .card__header,
@@ -70,6 +71,8 @@ main {
 .card__content h2,
 .card__content p {
   margin: 0;
+  color: #ddd;
+  cursor: default;
 }
 
 .card__image {
