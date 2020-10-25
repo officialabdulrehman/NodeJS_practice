@@ -2,16 +2,13 @@
   width: 20rem;
   max-width: 90%;
   margin: auto;
-}
-.product-form {
-  width: 20rem;
-  max-width: 90%;
-  margin: auto;
+  display: block;
 }
 
 .product-item {
   width: 20rem;
   max-width: 95%;
+  margin: 1rem;
 }
 
 .product__title {
@@ -61,7 +58,19 @@ button{
   cursor: pointer;
   outline: none;
 }
+.btn{
+  font: inherit;
+  border: 1px solid #3089af;
+  background-color: #3089af;
+  color: #eee;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
 button:hover,
-button:active{
+button:active,
+.btn:hover,
+.btn:active{
   background-color: #03a9f4;
 }
