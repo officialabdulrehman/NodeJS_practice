@@ -19,7 +19,7 @@
             <label for='description'>Description</label>
             <textarea rows='5' name="description" id='description'><%= product.description %></textarea>
           </div> 
-          <input type="hidden" name="productId" value='<%= product.id %>'>
+          <input type="hidden" name="productId" value='<%= product._id %>'>
             <button type="submit">Edit Product</button>
         </form>
     </main>
