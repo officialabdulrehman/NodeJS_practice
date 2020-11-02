@@ -12,6 +12,7 @@ exports.getAddProduct = (req, res, next) => {
 
 exports.postAddProduct = (req, res, next) => {
   const data = { ...req.body}
+  data.userId = req.user._id
   const product = new Product({...data})
   product.save()
     .then(result => res.redirect('/admin/products'))
