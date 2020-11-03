@@ -198,6 +198,41 @@ form {
   display: none;
 }
 
+.orders {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.orders__item h1 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.09rem;
+    cursor: default;
+}
+
+.orders__item {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #333333;
+}
+
+.orders__products {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.orders__products-item {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #3089af;
+    color: #3089af;
+    cursor: default;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
