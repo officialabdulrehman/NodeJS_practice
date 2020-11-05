@@ -34,8 +34,10 @@ form {
 }
 .main-header__nav{
   height: 100%;
-  display: none;
+  width: 100%;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .main-header__item-list{
   list-style-type: none;
@@ -231,6 +233,13 @@ form {
     border: 1px solid #3089af;
     color: #3089af;
     cursor: default;
+}
+
+.login-form{
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
+  display: block;
 }
 
 @media (min-width: 768px) {
