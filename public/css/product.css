@@ -41,6 +41,7 @@
   color: #eeeeee;
   font: inherit;
   outline: none;
+  padding: 2px;
 }
 .form-control input:focus,
 .form-control textarea:focus{
@@ -49,6 +50,10 @@
   color: #eeeeee;
   font: inherit;
 }
+.form-control .invalid {
+  color: lightcoral;
+}
+
 button{
   font: inherit;
   border: 1px solid #3089af;
