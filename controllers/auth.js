@@ -7,7 +7,6 @@ const { validationResult } = require("express-validator/check");
 
 const User = require("../models/user");
 const key = require("../sensitive");
-const { render } = require("pug");
 
 const transporter = nodemailer.createTransport(
   sendgridTransport({
