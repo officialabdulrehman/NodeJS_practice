@@ -1,18 +1,32 @@
-const mongodb = require('mongodb');
+const { validationResult } = require('express-validator/check');
 const Product = require('../models/product');
 
-const ObjectId = mongodb.ObjectId;
-
 exports.getAddProduct = (req, res, next) => {
-  res.render("admin/add-product", {
+  res.render("admin/edit-product", {
     docTitle: "Add Product",
     path: "/admin/add-product",
+    editing: false,
+    hasError: false,
+    errorMessage: null,
+    validationErrors: []
   });
 };
 
 exports.postAddProduct = (req, res, next) => {
   const data = { ...req.body}
   data.userId = req.user._id
+  const errors = validationResult(req)
+  if(!errors.isEmpty()){
+    return res.status(422).render("admin/edit-product", {
+      docTitle: "Add Product",
+      path: "/admin/edit-product",
+      hasError: true,
+      editing: false,
+      product: {...data},
+      errorMessage: errors.array()[0].msg,
+      validationErrors: errors.array()
+    });
+  }
   const product = new Product({...data})
   product.save()
     .then(result => {
@@ -34,7 +48,9 @@ exports.getEditProduct = (req, res, next) => {
         path: "/admin/edit-product",
         editing: editMode,
         product: product,
-  
+        hasError: false,
+        errorMessage: null,
+        validationErrors: []
       });
     })
 };
@@ -42,6 +58,20 @@ exports.getEditProduct = (req, res, next) => {
 exports.postEditProducts = (req, res, next) => {
   const prodId = req.body.productId;
   const {title, price, imageUrl, description} = req.body
+  const prodData = {...req.body}
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).render('admin/edit-product', {
+      docTitle: 'Edit Product',
+      path: '/admin/edit-product',
+      editing: true,
+      hasError: true,
+      product: {...prodData},
+      errorMessage: errors.array()[0].msg,
+      validationErrors: errors.array()
+    });
+  }
   Product.findById(prodId)
     .then(product => {
       if(product.userId.toString() !== req.user._id.toString()){

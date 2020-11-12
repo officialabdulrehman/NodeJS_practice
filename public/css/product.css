@@ -50,7 +50,8 @@
   color: #eeeeee;
   font: inherit;
 }
-.form-control .invalid {
+.form-control input.invalid,
+.form-control textarea.invalid {
   color: lightcoral;
 }
 
