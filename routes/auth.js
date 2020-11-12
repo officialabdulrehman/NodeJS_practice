@@ -13,14 +13,7 @@ router.post(
     check("email")
       .isEmail()
       .withMessage("Please enter a valid email")
-      .normalizeEmail()
-      .custom((value, { req }) => {
-        return User.findOne({ email: value }).then((userDoc) => {
-          if (userDoc) {
-            return Promise.reject("Email already exists");
-          }
-        });
-      }),
+      .normalizeEmail(),
     body("password", "Please enter a valid password")
       .isLength({ min: 5 })
       .isAlphanumeric()
