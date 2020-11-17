@@ -273,7 +273,7 @@ form {
 }
 
 .pagination a:hover,
-.pagination a:active
+.pagination a:active,
 .pagination a.active {
   background-color: #3089af;
   color: white;
